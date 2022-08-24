@@ -1,5 +1,13 @@
+import { useState } from 'react'
 const PizzaBlock = (props) => {
   const { title, image, price } = props
+
+  const [countPizza, setCountPizza] = useState(0)
+
+  const handleCountPizza = () => {
+    setCountPizza(countPizza + 1)
+  }
+
   return (
     <div className='pizza-block'>
       <img className='pizza-block__image' src={image} alt='Pizza' />
@@ -17,7 +25,7 @@ const PizzaBlock = (props) => {
       </div>
       <div className='pizza-block__bottom'>
         <div className='pizza-block__price'>{price} €</div>
-        <div className='button button--outline button--add'>
+        <button className='button button--outline button--add' onClick={handleCountPizza}>
           <svg
             width='12'
             height='12'
@@ -31,8 +39,8 @@ const PizzaBlock = (props) => {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
-        </div>
+          <i>{countPizza}</i>
+        </button>
       </div>
     </div>
   )
