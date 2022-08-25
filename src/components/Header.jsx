@@ -1,9 +1,11 @@
+import logoSVG from '../assets/img/pizza-logo.svg'
+
 const Header = () => {
   return (
     <div className='header'>
       <div className='container'>
         <div className='header__logo'>
-          <img width='38' src='./img/pizzaLogo.svg' alt='Pizza logo' />
+          <img width='38' src={logoSVG} alt='pizza logo' />
           <div>
             <h1>React Pizza</h1>
             <p>The tastiest Pizza</p>
