@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logoSVG from '../assets/img/pizza-logo.svg'
 
 const Header = () => {
@@ -5,11 +6,13 @@ const Header = () => {
     <div className='header'>
       <div className='container'>
         <div className='header__logo'>
-          <img width='38' src={logoSVG} alt='pizza logo' />
-          <div>
-            <h1>React Pizza</h1>
-            <p>The tastiest Pizza</p>
-          </div>
+          <Link to='/'>
+            <img width='38' src={logoSVG} alt='pizza logo' />
+            <div>
+              <h1>React Pizza</h1>
+              <p>The tastiest Pizza</p>
+            </div>
+          </Link>
         </div>
         <div className='header__cart'>
           <a href='/cart.html' className='button button--cart'>
