@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-const Categories = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+const Categories = (props) => {
+  const { currentId, setCurrentId } = props
+  // const [activeIndex, setActiveIndex] = useState(0)
 
   const categories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Closed']
   return (
@@ -10,8 +11,8 @@ const Categories = () => {
         {categories.map((el, indx) => (
           <li
             key={indx}
-            onClick={() => setActiveIndex(indx)}
-            className={activeIndex === indx ? 'active' : ''}
+            onClick={() => setCurrentId(indx)}
+            className={currentId === indx ? 'active' : ''}
           >
             {el}
           </li>

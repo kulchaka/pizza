@@ -4,9 +4,9 @@ import ContentLoader from 'react-content-loader'
 const SkeletonPizza = () => (
   <ContentLoader
     speed={2}
-    width={400}
+    width={300}
     height={460}
-    viewBox='0 0 400 460'
+    viewBox='0 0 300 460'
     backgroundColor='#f3f3f3'
     foregroundColor='#ecebeb'
   >
