@@ -17,6 +17,7 @@ const Home = () => {
         setData(response.data)
       })
       .catch((error) => console.error('ErrorAPI: ', error))
+    window.scrollTo(0, 178)
   }, [])
 
   return (
