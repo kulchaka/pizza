@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 const Sort = (props) => {
   const { activeSort, setActiveSort } = props
-  console.log(activeSort)
   const listSort = [
     {
       name: 'Popularity ↑',

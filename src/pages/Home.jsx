@@ -5,7 +5,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import SkeletonPizza from '../components/PizzaBlock/SkeletonPizza'
 
-const Home = () => {
+const Home = (props) => {
+  const { searchValue } = props
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [categoryId, setCategoryId] = useState(0)
@@ -42,7 +43,9 @@ const Home = () => {
       <div className='content__items'>
         {isLoading
           ? [...new Array(10)].map((_, i) => <SkeletonPizza key={i} />)
-          : data.map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
+          : data
+              .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
+              .map((obj) => <PizzaBlock key={obj.id} {...obj} />)}
       </div>
     </>
   )
