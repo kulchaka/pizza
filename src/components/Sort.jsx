@@ -1,21 +1,51 @@
 import { useState } from 'react'
 
-const Sort = () => {
-  const listSort = ['popularity', 'price', 'alphabet']
+const Sort = (props) => {
+  const { activeSort, setActiveSort } = props
+  console.log(activeSort)
+  const listSort = [
+    {
+      name: 'Popularity ↑',
+      sortProperty: 'rating',
+      orderProperty: 0,
+    },
+    {
+      name: 'Popularity ↓',
+      sortProperty: 'rating',
+      orderProperty: 1,
+    },
+    {
+      name: 'Price ↑',
+      sortProperty: 'price',
+      orderProperty: 0,
+    },
+    {
+      name: 'Price ↓',
+      sortProperty: 'price',
+      orderProperty: 1,
+    },
+    {
+      name: 'A-Z',
+      sortProperty: 'title',
+      orderProperty: 1,
+    },
+    {
+      name: 'Z-A',
+      sortProperty: 'title',
+      orderProperty: 0,
+    },
+  ]
 
   const [isVisibleSort, setIsVisibleSort] = useState(false)
-  const [activeSort, setActiveSort] = useState(0)
-  const [string, setString] = useState('popularity')
 
-  const handleList = (string, index) => {
-    setActiveSort(index)
+  const handleList = (obj) => {
+    setActiveSort(obj)
     setIsVisibleSort(false)
-    setString(string)
   }
 
   return (
     <div className='sort'>
-      <div className='sort__label'>
+      <div className='sort__label' onClick={() => setIsVisibleSort(!isVisibleSort)}>
         <svg
           width='10'
           height='6'
@@ -29,18 +59,23 @@ const Sort = () => {
           />
         </svg>
         <b>Sort by:</b>
-        <span onClick={() => setIsVisibleSort(!isVisibleSort)}>{string}</span>
+        <span>{activeSort.name}</span>
       </div>
       {isVisibleSort && (
         <div className='sort__popup'>
           <ul>
-            {listSort.map((str, i) => (
+            {listSort.map((obj, i) => (
               <li
                 key={i}
-                className={activeSort === i ? 'active' : ''}
-                onClick={() => handleList(str, i)}
+                className={
+                  obj.sortProperty === activeSort.sortProperty &&
+                  obj.orderProperty === activeSort.orderProperty
+                    ? 'active'
+                    : ''
+                }
+                onClick={() => handleList(obj)}
               >
-                {str}
+                {obj.name}
               </li>
             ))}
           </ul>
