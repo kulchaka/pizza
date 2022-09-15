@@ -34,7 +34,7 @@ body {
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px;
 
@@ -354,4 +354,9 @@ body {
       font-size: 18px;
     }
   }
+}
+
+.MuiPagination-ul {
+  margin-top: 40px !important;
+  justify-content: center;
 }
