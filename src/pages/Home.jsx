@@ -3,12 +3,13 @@ import Categories from '../components/Categories'
 import PizzaBlock from '../components/PizzaBlock'
 import Sort from '../components/Sort'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import SkeletonPizza from '../components/PizzaBlock/SkeletonPizza'
+import { SearchContext } from '../App.js'
 
-const Home = (props) => {
-  const { searchValue } = props
+const Home = () => {
   const pizzasOnPage = 4
+  const { searchValue } = useContext(SearchContext)
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [categoryId, setCategoryId] = useState(0)

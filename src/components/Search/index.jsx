@@ -1,9 +1,11 @@
+import { useContext } from 'react'
 import styles from './Search.module.scss'
 import iconSearch from '../../assets/img/search.svg'
 import iconClose from '../../assets/img/close.svg'
+import { SearchContext } from '../../App'
 
-const Search = (props) => {
-  const { searchValue, setSearchValue } = props
+const Search = () => {
+  const { searchValue, setSearchValue } = useContext(SearchContext)
   return (
     <div className={styles.root}>
       {searchValue.length < 1 && <img className={styles.icon} src={iconSearch} alt='search' />}
